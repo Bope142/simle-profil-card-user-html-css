@@ -1,0 +1,229 @@
+@import "reset.scss";
+@import "variable.scss";
+
+html {
+  scroll-behavior: smooth;
+  user-select: none;
+}
+
+* {
+  scroll-behavior: smooth !important;
+}
+
+body {
+  font-family: $fontRegular;
+  position: relative;
+  height: 100vh;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  overflow: hidden;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 100%;
+  background: hsla(169, 76%, 48%, 1);
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    hsla(169, 76%, 48%, 1) 0%,
+    hsla(67, 87%, 82%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(169, 76%, 48%, 1) 0%,
+    hsla(67, 87%, 82%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(169, 76%, 48%, 1) 0%,
+    hsla(67, 87%, 82%, 1) 100%
+  );
+}
+
+.container__profil {
+  display: flex;
+  overflow: hidden;
+  width: 350px;
+  height: auto;
+  flex-direction: column;
+  border-radius: 0.5rem;
+}
+
+.profil__header {
+  display: flex;
+  flex: none;
+  height: 190px;
+  overflow: hidden;
+  position: relative;
+  & img {
+    height: 100%;
+    width: 100%;
+  }
+  &::after {
+    content: "";
+    background: rgba(0, 0, 0, 0.28);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+}
+
+.profil__infos {
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2.9px);
+  -webkit-backdrop-filter: blur(2.9px);
+  // border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 25px;
+  padding-top: 65px;
+
+  & .user__profil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+    flex: none;
+    height: 100px;
+    width: 100px;
+    border: 5px solid white;
+    position: absolute;
+    left: 50%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+      rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    & img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    align-self: center;
+    transform: translate(-50%, -115%);
+    z-index: 15;
+  }
+  & #user__name {
+    align-self: center;
+    font-family: $fontBold;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.388);
+  }
+  & #user__skill {
+    align-self: center;
+    font-family: $fontRegular;
+    font-size: 0.9rem;
+    opacity: 0.6;
+    margin-bottom: 10px;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.388);
+  }
+  & #user__overview {
+    align-self: center;
+    font-family: $fontRegular;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 20px;
+    text-align: justify;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.388);
+  }
+
+  & .profil__friends {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    padding-top: 20px;
+    border-top: 1px solid rgba(243, 243, 243, 0.582);
+    flex-direction: column;
+    row-gap: 15px;
+    & .title__section {
+      font-family: $fontMedium;
+      font-size: 0.9rem;
+      color: white;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.388);
+    }
+
+    & .container__members {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+  }
+}
+
+.members__profils {
+  display: flex;
+  overflow: hidden;
+
+  & .circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    overflow: hidden;
+    border: 2px solid white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+  & .pics__members img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  & #followers {
+    background: rgb(0, 0, 0);
+    color: white;
+    font-family: $fontRegular;
+    font-size: 1rem;
+  }
+}
+
+#link__share {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 5px;
+  color: rgba(0, 0, 0, 0.156);
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.81);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.388);
+
+  & svg {
+    height: 1.2rem;
+    width: 1.2rem;
+    & * {
+      fill: rgba(255, 255, 255, 0.436);
+    }
+  }
+}
+
+.trsl-x-1 {
+  transform: translateX(-30%) !important;
+}
+.trsl-x-2 {
+  transform: translateX(-68%) !important;
+}
+.trsl-x-3 {
+  transform: translateX(-98%) !important;
+}
+.trsl-x-4 {
+  transform: translateX(-138%) !important;
+}
